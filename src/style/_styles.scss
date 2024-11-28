@@ -1,0 +1,565 @@
+/* You can add global styles to this file, and also import other style files */
+@forward "animations";
+
+.transition-3s {
+    transition: .3s;
+}
+
+// Geral
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+option:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus,
+input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.opacity-50 {
+    opacity: 50%;
+}
+
+.hover-underline:hover {
+    text-decoration: underline !important;
+}
+
+// Cores
+
+$background-app: #f7f9fa;
+
+$gray-1: #EDEDED;
+$gray-2: #CCCCCC;
+$gray-3: #9E9D9D;
+$gray-complement: #D9D9D9;
+
+$dark-1: #000000;
+$dark-2: #111111;
+
+$primary-text: #080808;
+$secondary-text: #9E9E9E;
+$tertiary-text: #BDBABA;
+$support-text: #868585;
+
+$btn-text-color: #FFFFFF;
+
+$brand-primary-blue: #0a6789;
+$brand-primary-blue-hover: #1e7b9c;
+
+$brand-primary-orange: #fa6632;
+$brand-primary-orange-hover: #ff7a4a;
+
+$brand-primary-green: #0a996f;
+$brand-primary-green-hover: #1caf83;
+
+$brand-primary-yellow: #fecd23;
+$brand-primary-yellow-hover: #ffd951;
+
+$input-border: #9E9E9E;
+$input-bg: #f7f9fa;
+
+$success: #07db9c;
+$warning: #facd03;
+$danger: #fa3d03;
+$info: #0c79b8;
+
+::placeholder {
+    color: $secondary-text !important;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+
+    opacity: 1;
+}
+
+/* Para navegadores baseados no WebKit (Chrome, Safari, Opera) */
+::-webkit-input-placeholder {
+    color: $secondary-text !important;;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+/* Para o Firefox */
+::-moz-placeholder {
+    color: $secondary-text !important;;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+/* Para o Internet Explorer 10+ */
+:-ms-input-placeholder {
+    color: $secondary-text !important;;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+/* Para o Microsoft Edge */
+:-moz-placeholder {
+    color: $secondary-text !important;;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+body,
+html {
+    font-family: "Noto Sans", sans-serif;
+    background-color: $background-app;
+    overflow-x: hidden;
+}
+
+$i: 9;
+
+@while ($i < 52) {
+  .f-size-#{$i} {
+    font-size: #{$i}px !important;
+  }
+
+  .l-height-#{$i} {
+    line-height: #{$i}px !important;
+  }
+
+  $i: $i + 1;
+}
+
+.l-height-61 {
+    line-height: 61px;
+}
+
+.l-height-70 {
+    line-height: 70px;
+}
+
+$i: 100;
+
+@while ($i <= 900) {
+  .fw-#{$i} {
+    font-weight: #{$i} !important;
+  }
+
+  $i: $i + 100;
+}
+
+.letter-s-3 {
+    letter-spacing: 0.03em;
+}
+
+.letter-s-5 {
+    letter-spacing: 0.05em;
+}
+
+// Font Colors
+
+.primary-text {
+    color: $primary-text !important;
+}
+
+.secondary-text {
+    color: $secondary-text !important;
+}
+
+.tertiary-text {
+    color: $tertiary-text;
+}
+
+.brand-text-blue {
+    color: $brand-primary-blue !important;
+}
+
+.brand-text-orange {
+    color: $brand-primary-orange !important;
+}
+
+.brand-text-green {
+    color: $brand-primary-green !important;
+}
+
+.brand-text-yellow {
+    color: $brand-primary-yellow !important;
+}
+
+.support-text {
+    color: $support-text;
+}
+
+.success-text {
+    color: $success;
+}
+
+.warning-text {
+    color: $warning;
+}
+
+.danger-text {
+    color: $danger !important;
+}
+
+.input-error-text {
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 2px;
+    font-weight: 400;
+    display: block;
+    color: $danger !important;
+}
+
+.info-text {
+    color: $info !important;
+}
+
+.dropdown {
+    z-index: 99999999 !important;
+}
+
+.dropdown-menu.show {
+    z-index: 99999999 !important;
+}
+
+// Background Colors
+
+.bg-support {
+    background-color: $support-text;
+}
+
+.brand-bg-blue {
+    background-color: $brand-primary-blue !important;
+}
+
+.brand-bg-orange {
+    background-color: $brand-primary-orange !important;
+}
+
+.brand-bg-green {
+    background-color: $brand-primary-green !important;
+}
+
+.brand-bg-yellow {
+    background-color: $brand-primary-yellow !important;
+}
+
+.success-bg {
+    background-color: $success;
+}
+
+.warning-bg {
+    background-color: $warning;
+}
+
+.danger-bg {
+    background-color: $danger !important;
+}
+
+// BTN - BUTTONS
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button.loading::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    animation: spin 1s infinite linear;
+    margin-right: 6px;
+}
+
+.brand-btn-blue {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: .3px;
+
+    color: $btn-text-color;
+    background-color: $brand-primary-blue;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $brand-primary-blue-hover;
+    }
+
+    &:disabled {
+        opacity: .55;
+    }
+}
+
+.brand-btn-green {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: .3px;
+
+    color: $btn-text-color;
+    background-color: $brand-primary-green;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $brand-primary-green-hover;
+    }
+
+    &:disabled {
+        opacity: .55;
+    }
+}
+
+.brand-btn-yellow {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: .3px;
+
+    color: $btn-text-color;
+    background-color: $brand-primary-yellow;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $brand-primary-yellow-hover;
+    }
+
+    &:disabled {
+        opacity: .55;
+    }
+}
+
+.brand-btn-orange {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: .3px;
+
+    color: $btn-text-color;
+    background-color: $brand-primary-orange;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $brand-primary-orange-hover;
+    }
+
+    &:disabled {
+        opacity: .55;
+    }
+}
+
+// Form- inputs
+
+.input-group-custom {
+    border: 1px solid $input-border;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: $input-bg;
+
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 100%;
+    }
+
+    .icon-input {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        display: block;
+    }
+}
+
+input, textarea {
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+
+    color: $primary-text;
+    font-size: 14px;
+    line-height: 20px;
+    padding: .8rem 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    letter-spacing: .3px;
+
+    &:read-only {
+        color: $tertiary-text !important;
+    }
+}
+
+.autofill-input::-webkit-input-autofill,
+.autofill:-webkit-autofill { /* Chrome-specific autofill style */
+  background: transparent !important;
+  -webkit-box-shadow: inset 0 0 0 100px $input-bg !important;
+  -webkit-text-fill-color: $primary-text !important;
+  border-color: transparent !important;
+}
+
+select {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: $primary-text;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+
+    option {
+        font-size: 14px;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 400;
+        color: $primary-text;
+    }
+}
+
+.separator {
+    display: block;
+    height: 1px;
+    background-color: $secondary-text;
+    width: 100%;
+
+    opacity: .25;
+}
+
+// ACCORDION
+.custom-accordion {
+    .accordion-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        cursor: pointer;
+
+        .open-close-btn {
+            transform: rotate(0deg);
+            transition: .3s;
+        }
+    }
+
+    .accordion-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 300ms;
+    }
+
+    .content-hider {
+        overflow: hidden;
+    }
+
+    &.active {
+        .accordion-header {
+            .open-close-btn {
+                transform: rotate(45deg);
+            }
+        }
+
+        .accordion-content {
+            grid-template-rows: 1fr;
+        }
+    }
+}
+
+// TOOLBAR
+.toolbar {
+    width: 100%;
+
+}
