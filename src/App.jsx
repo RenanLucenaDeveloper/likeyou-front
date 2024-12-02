@@ -10,20 +10,19 @@ import { Welcome } from "./components/welcome";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/login" element={<Login />} />
-    //     <Route path="/register" element={<Register />} />
-    //     <Route path="/forgot-password" element={<ForgotPassword />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
-    //     {/* Rotas que tem Toolbar */}
-    //     <Route path="/" element={<ToolbarRoutes />}>
-    //       <Route index element={<Home />} />
-    //       <Route path="profile/:id" element={<Profile />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
-    <Welcome />
+        {/* Rotas que tem Toolbar */}
+        <Route path="/" element={<ToolbarRoutes />}>
+          <Route index element={<Home />} />
+          <Route path="profile/:id" element={<Profile />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
