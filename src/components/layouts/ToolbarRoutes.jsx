@@ -5,8 +5,8 @@ import Toolbar from '../shared/Toolbar'
 const ToolbarRoutes = () => {
   return (
     <>
-        <Outlet />
         <Toolbar />
+        <Outlet />
     </>
   )
 }
