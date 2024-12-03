@@ -1,15 +1,18 @@
 :root {
   --white: #fff;
-  --black: #000;
 
-  --gray-100: #f1f3f5;
-  --gray-300: #dee2e6;
-  --gray-400: #ced4da;
+  --dark: #000;
+  --dark-100: #111111;
+
+  --gray-100: #ededed;
+  --gray-300: #cccccc;
+  --gray-400: #9e9d9d;
   --gray-800: #343a40;
 
-  --blue-500: #3672E9;
-  --blue-700: #0a9789;
+  --blue-300: #1e7b9c;
+  --blue-500: #0a6789;
 
+  --orange-300: #ff7a4a;
   --orange-500: #fa6632;
 
   --yellow-500: #fecd23;
@@ -18,5 +21,5 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
