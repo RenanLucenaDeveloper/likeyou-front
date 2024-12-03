@@ -5,6 +5,7 @@ import Profile from './components/Profile'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import ForgotPassword from './components/auth/ForgotPassword'
+import Welcome from './components/Welcome'
 import ToolbarRoutes from './components/layouts/ToolbarRoutes'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/welcome' element={<Welcome />} />
 
         {/* Rotas que tem Toolbar */}
         <Route path='/' element={<ToolbarRoutes />}>
