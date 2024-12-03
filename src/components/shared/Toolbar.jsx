@@ -25,7 +25,7 @@ const Toolbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/login" title='Meu Perfil'>
+          <Link to="/Welcome" title='Meu Perfil'>
             <img src={accountCircle} alt="Meu Perfil" width="24px" className="d-block"/>
           </Link>
         </li>

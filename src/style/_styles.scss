@@ -56,6 +56,11 @@ html {
     text-decoration: underline !important;
 }
 
+.min-h-100dvh {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
 // Cores
 
 $background-app: #f7f9fa;
@@ -266,6 +271,26 @@ $i: 100;
 
 .bg-support {
     background-color: $support-text;
+}
+
+.bg-gray-1 {
+    background-color: $gray-1;
+}
+
+.bg-gray-2 {
+    background-color: $gray-2;
+}
+
+.bg-gray-3 {
+    background-color: $gray-3;
+}
+
+.bg-gray-complement {
+    background-color: $gray-complement;
+}
+
+.bg-support-lines {
+    background-color: $support-lines;
 }
 
 .brand-bg-blue {
