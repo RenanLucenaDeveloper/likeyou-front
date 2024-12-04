@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/likeyou-front",
+  base: "/likeyou-front/",
   plugins: [react()],
   css: {
     preprocessorOptions: {
