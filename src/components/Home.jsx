@@ -45,7 +45,7 @@ const Home = () => {
             Ator e Artista
           </p>
 
-          <div className="d-flex align-items-center mx-auto rate-btns-container">
+          <Link to='/login' className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none">
             <button
               className='w-100 dislike-btn d-flex align-items-center gap-2'>
                 <img src={dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
@@ -57,7 +57,7 @@ const Home = () => {
                 30.000
                 <img src={likeIcon} alt="Gostei" width="20px" className="d-block"/>
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </section>
