@@ -45,7 +45,7 @@ const Home = () => {
             Ator e Artista
           </p>
 
-          <Link to='/login' className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none">
+          <Link to="/login" className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none">
             <button
               className='w-100 dislike-btn d-flex align-items-center gap-2'>
                 <img src={dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
