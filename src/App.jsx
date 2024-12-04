@@ -11,7 +11,7 @@ import ToolbarRoutes from './components/layouts/ToolbarRoutes'
 function App() {
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
@@ -25,7 +25,7 @@ function App() {
         </Route>
 
       </Routes>
-    </BrowserRouter>
+    // </BrowserRouter>
   )
 }
 
