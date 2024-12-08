@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/likeyou-front/",
+  // base: "/likeyou-front/",
   plugins: [react()],
   css: {
     preprocessorOptions: {
@@ -16,6 +16,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),
+      '@axios': path.resolve(__dirname, 'src/axios'),
     },
   },
 })

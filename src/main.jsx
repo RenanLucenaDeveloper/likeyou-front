@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './style/_styles.scss'
 
 createRoot(document.getElementById('root')).render(
-  <HashRouter>
+  <StrictMode>
     <App />
-  </HashRouter>,
+  </StrictMode>,
 )

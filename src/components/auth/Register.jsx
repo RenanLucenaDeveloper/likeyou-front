@@ -7,7 +7,10 @@ import { useForm } from 'react-hook-form'
 import Input from '../form/Input'
 import InputWithMask from '../Form/InputWithMask'
 import { Link } from 'react-router-dom'
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"
+import custom_axios from '@axios/AxiosSetup'
+import { toast } from 'react-toastify'
+
 
 const Register = () => {
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm()
@@ -16,13 +19,21 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      console.log(data)
+      // await new Promise((resolve) => setTimeout(resolve, 1200));
+
+      // limpa os dados
+      data.phone = data.phone.replace(/\D/g, '')
+      data.cpf = data.cpf.replace(/\D/g, '')
+
+      const response = await custom_axios.post('/users', data)
+      
+      toast.success('Conta criada com sucesso!')
       navigate('/login')
     }
     catch (error) {
+      toast.error(error.response.data.message)
       setError("root", {
-        message: error.message
+        message: error.response.data.message
       })
     }
   }

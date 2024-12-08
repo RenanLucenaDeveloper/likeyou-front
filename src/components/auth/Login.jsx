@@ -7,6 +7,8 @@ import Input from '../form/Input'
 import InputWithMask from '../Form/InputWithMask'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router";
+import custom_axios from '@axios/AxiosSetup'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm()
@@ -15,13 +17,14 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      console.log(data)
+      const response = await custom_axios.post('/auth/login', data)
+      localStorage.setItem("token", response.data.access_token)
       navigate('/')
     }
     catch (error) {
+      toast.error(error.response.data.message)
       setError("root", {
-        message: error.message
+        message: error.response.data.message
       })
     }
   }
