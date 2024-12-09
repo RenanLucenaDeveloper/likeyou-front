@@ -19,8 +19,6 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 1200));
-
       // limpa os dados
       data.phone = data.phone.replace(/\D/g, '')
       data.cpf = data.cpf.replace(/\D/g, '')
