@@ -485,7 +485,7 @@ button.loading::before {
     background-color: $dislike;
     color: #FFFFFF;
 
-    padding: .65rem;
+    padding: .5rem .75rem;
     transition: .3s;
 
     font-weight: 500;
@@ -505,7 +505,7 @@ button.loading::before {
     background-color: $like;
     color: #FFFFFF;
 
-    padding: .65rem;
+    padding: .5rem .75rem;
     transition: .3s;
 
     font-weight: 500;
@@ -642,6 +642,13 @@ select {
     }
 }
 
+// CARDS
+
+.main-card {
+    border: 1px dotted $gray-2;
+    border-radius: .5rem;
+}
+
 // TOOLBAR
 .toolbar {
     width: 100%;
@@ -735,6 +742,7 @@ select {
     width: 210px;
     height: 210px;
     border-radius: 999px;
+    border: 1px solid $gray-2;
     overflow: hidden;
 
     img {

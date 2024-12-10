@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 const Welcome = () => {
   return (
     <section 
-      className='container-fluid min-h-100dvh bg-gray-1 
+      className='container-fluid min-h-100dvh 
                  d-flex flex-column align-items-center 
                  justify-content-center fade-in py-5'
       >
       <div className="row">
         <div className="col">
-          <img src={IMG} alt="Arte Likeyou" width="195px" className="d-block mx-auto"/>
+          <img src={IMG} alt="Arte Likeyou" width="150px" className="d-block mx-auto"/>
 
           <h2 
             className='f-size-20 l-height-30 fw-700 primary-text text-center pt-3 mt-5 mb-4'>

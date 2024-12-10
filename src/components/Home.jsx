@@ -34,30 +34,32 @@ const Home = () => {
 
       <div className="row pt-5">
         <div className="col pt-3">
-          <div className="profile-img-container mx-auto">
-            <img src={willSmithImg} alt="Imagem de perfil" width="100%" className="d-block"/>
+          <div className='main-card p-4'>
+            <div className="profile-img-container mx-auto mt-2">
+              <img src={willSmithImg} alt="Imagem de perfil" width="100%" className="d-block"/>
+            </div>
+
+            <p className='f-size-18 l-height-26 fw-600 letter-s-1 primary-text text-center mb-1 pt-3'>
+              Willard Carroll Smith
+            </p>
+            <p className='f-size-16 l-height-24 fw-400 letter-s-1 secondary-text text-center'>
+              Ator e Artista
+            </p>
+
+            <Link to="/login" className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none mb-2">
+              <button
+                className='w-100 dislike-btn d-flex align-items-center gap-2'>
+                  <img src={dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
+                  30.000
+              </button>
+
+              <button
+                className='w-100 like-btn d-flex align-items-center justify-content-end gap-2'>
+                  30.000
+                  <img src={likeIcon} alt="Gostei" width="20px" className="d-block"/>
+              </button>
+            </Link>
           </div>
-
-          <p className='f-size-18 l-height-26 fw-600 letter-s-1 primary-text text-center mb-1 pt-3'>
-            Willard Carroll Smith
-          </p>
-          <p className='f-size-16 l-height-24 fw-400 letter-s-1 secondary-text text-center'>
-            Ator e Artista
-          </p>
-
-          <Link to="/login" className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none">
-            <button
-              className='w-100 dislike-btn d-flex align-items-center gap-2'>
-                <img src={dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
-                30.000
-            </button>
-
-            <button
-              className='w-100 like-btn d-flex align-items-center justify-content-end gap-2'>
-                30.000
-                <img src={likeIcon} alt="Gostei" width="20px" className="d-block"/>
-            </button>
-          </Link>
         </div>
       </div>
     </section>
