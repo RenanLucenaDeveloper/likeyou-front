@@ -647,6 +647,7 @@ select {
 .main-card {
     border: 1px dotted $gray-2;
     border-radius: .5rem;
+    overflow: hidden;
 }
 
 // TOOLBAR
@@ -744,6 +745,21 @@ select {
     border-radius: 999px;
     border: 1px solid $gray-2;
     overflow: hidden;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.toolbar-profile-img-container {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    overflow: hidden;
+    display: block;
+    padding: 0 !important;
 
     img {
         object-fit: cover;
