@@ -654,6 +654,9 @@ select {
 .toolbar {
     width: 100%;
     position: fixed;
+    z-index: 999;
+    background-color: $background-app;
+    
     bottom: 0;
     left: 0;
     border-top: 1px solid $support-lines;
