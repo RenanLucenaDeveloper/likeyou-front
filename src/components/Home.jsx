@@ -5,6 +5,8 @@ import secondPlaceImg from '@assets/img/second-place-example.webp'
 import thirdPlaceImg from '@assets/img/third-place-example.jpg'
 import likeIcon from '@assets/icons/like.svg'
 import dislikeIcon from '@assets/icons/dislike.svg'
+import FilledLikeIcon from '@assets/icons/filled-like.svg'
+import FilledDislikeIcon from '@assets/icons/filled-dislike.svg'
 import { useNavigate } from "react-router"
 import { getLoginInfo } from '../utils/login-info'
 import custom_axios from '@axios/AxiosSetup'
@@ -15,6 +17,7 @@ const Home = () => {
   const [loading, setLoading] = React.useState(false)
   const [feed, setFeed] = React.useState([])
   const [clientSideFeedbacks, setClientSideFeedbacks] = React.useState([])
+  const [givenFeedbacks, setGivenFeedbacks] = React.useState([])
   let navigate = useNavigate();
 
   // Se tiver logado, retorna as infos do user, se não retorna null
@@ -22,13 +25,35 @@ const Home = () => {
     const loginInfo = getLoginInfo()
     setUserInfo(loginInfo)
 
-    getFeed()
+    setTimeout(() => {
+      getFeed()
+    }, 1)
   }, [])
 
   const getFeed = async () => {    
     try {
       const response = await custom_axios.get(`/users/feed/${userInfo ? userInfo.sub : ''}`)
-      setFeed(response.data)
+
+      const mappedFeedbacks = response.data.map(user => {
+        // Se algum user tiver feedback do user logado, adiciona na array
+        if(user.givenFeedback) {
+          setGivenFeedbacks(() => {
+            let actualList = givenFeedbacks
+            return [...actualList, {id: user.id, feedback: user.givenFeedback}]
+          })
+
+          setClientSideFeedbacks(() => {
+            let actualList = clientSideFeedbacks
+            return [...actualList, {id: user.id, feedback: user.givenFeedback}]
+          })
+
+          user.feedbacks[user.givenFeedback + 's'] = user.feedbacks[user.givenFeedback + 's'] - 1
+        }
+
+        return user
+      })
+
+      setFeed(mappedFeedbacks)
       console.log(response)
     }
     catch (error) {
@@ -50,6 +75,12 @@ const Home = () => {
       // Depois de dar certo, da um feedback visual para o usuário
       setClientSideFeedbacks(() => {
         let actualList = clientSideFeedbacks
+        actualList = actualList.filter((feedback) => feedback.id !== id)
+        return [...actualList, {id, feedback}]
+      })
+
+      setGivenFeedbacks(() => {
+        let actualList = givenFeedbacks
         actualList = actualList.filter((feedback) => feedback.id !== id)
         return [...actualList, {id, feedback}]
       })
@@ -117,17 +148,17 @@ const Home = () => {
                 <button
                   onClick={() => giveFeedback(feedUser.id, 'dislike')}
                   disabled={loading}
-                  className='w-100 dislike-btn d-flex align-items-center gap-2'>
-                    <img src={dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
+                  className={`w-100 dislike-btn d-flex align-items-center gap-2 ${givenDislikes(feedUser.id) ? 'active' : ''}`}>
+                    <img src={givenDislikes(feedUser.id) ? FilledDislikeIcon : dislikeIcon} alt="Não gostei" width="20px" className="d-block"/>
                     {feedUser.feedbacks.dislikes + (givenDislikes(feedUser.id))}
                 </button>
 
                 <button
                   onClick={() => giveFeedback(feedUser.id, 'like')}
                   disabled={loading}
-                  className='w-100 like-btn d-flex align-items-center justify-content-end gap-2'>
+                  className={`w-100 like-btn d-flex align-items-center justify-content-end gap-2 ${givenlikes(feedUser.id) ? 'active' : ''}`}>
                     {feedUser.feedbacks.likes + (givenlikes(feedUser.id))}
-                    <img src={likeIcon} alt="Gostei" width="20px" className="d-block"/>
+                    <img src={givenlikes(feedUser.id) ? FilledLikeIcon : likeIcon} alt="Gostei" width="20px" className="d-block"/>
                 </button>
               </div>
             </div>

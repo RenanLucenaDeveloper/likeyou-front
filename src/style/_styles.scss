@@ -496,6 +496,10 @@ button.loading::before {
     &:hover {
         background-color: $dislike-hover;
     }
+
+    &.active {
+        font-weight: 600;
+    }
 }
 
 .like-btn {
@@ -516,6 +520,10 @@ button.loading::before {
 
     &:hover {
         background-color: $like-hover;
+    }
+
+    &.active {
+        font-weight: 600;
     }
 }
 
