@@ -143,8 +143,8 @@ const ChangeProfilePicture = () => {
                         <div className='fade-in w-100 px-2 pt-4'>
                             <label 
                               htmlFor="image" 
-                              className='fw-500 primary-text f-size-14'>
-                                Selecione uma imagem para alterar sua foto de perfil
+                              className='fw-500 primary-text f-size-20 l-height-30 mb-4'>
+                                Selecione uma foto de perfil
                             </label>
 
                             <input 

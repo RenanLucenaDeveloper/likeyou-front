@@ -10,6 +10,8 @@ import ToolbarRoutes from './components/layouts/ToolbarRoutes'
 import { ToastContainer } from 'react-toastify'
 import ChangeProfilePicture from './components/ChangeProfilePicture'
 import "react-toastify/dist/ReactToastify.css"
+import FinishRegister from './components/auth/FinishRegister'
+import EditProfile from './components/EditProfile'
 
 function App() {
 
@@ -20,9 +22,11 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/finish-register' element={<FinishRegister />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/welcome' element={<Welcome />} />
         <Route path='/change-profile-picture' element={<ChangeProfilePicture />} />
+        <Route path='/welcome' element={<Welcome />} />
+        <Route path='/edit-profile' element={<EditProfile />} />
 
         {/* Rotas que tem Toolbar */}
         <Route path='/' element={<ToolbarRoutes />}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import accountCircle from '@assets/icons/account-circle.svg'
 import firstPlaceImg from '@assets/img/first-place-example.avif'
 import secondPlaceImg from '@assets/img/second-place-example.webp'
 import thirdPlaceImg from '@assets/img/third-place-example.jpg'
@@ -26,13 +27,13 @@ const Home = () => {
     setUserInfo(loginInfo)
 
     setTimeout(() => {
-      getFeed()
-    }, 1)
+      getFeed(loginInfo)
+    }, 0)
   }, [])
 
-  const getFeed = async () => {    
+  const getFeed = async (loginInfo) => {    
     try {
-      const response = await custom_axios.get(`/users/feed/${userInfo ? userInfo.sub : ''}`)
+      const response = await custom_axios.get(`/users/feed/${loginInfo ? loginInfo.sub : ''}`)
 
       const mappedFeedbacks = response.data.map(user => {
         // Se algum user tiver feedback do user logado, adiciona na array
@@ -54,7 +55,7 @@ const Home = () => {
       })
 
       setFeed(mappedFeedbacks)
-      console.log(response)
+      // console.log(response)
     }
     catch (error) {
       toast.error(error.response.data.message)
@@ -134,14 +135,14 @@ const Home = () => {
           <li className="fade-in col-12 col-lg-6 pt-3" key={feedUser.id}>
             <div className='main-card h-100 p-4'>
               <div className="profile-img-container mx-auto mt-2">
-                <img src={feedUser.profileImage} alt="Imagem de perfil" width="100%" className="d-block"/>
+                <img src={feedUser.profileImage ? feedUser.profileImage : accountCircle} alt="Imagem de perfil" width="100%" className="d-block"/>
               </div>
 
               <p className='f-size-18 l-height-26 fw-600 letter-s-1 primary-text text-center mb-1 pt-3'>
                 {feedUser.name}
               </p>
               <p className='f-size-16 l-height-24 fw-400 letter-s-1 secondary-text text-center'>
-                {feedUser.description ? feedUser.description : <span>&nbsp;</span>}
+                {feedUser.shortDescription ? feedUser.shortDescription : <span>&nbsp;</span>}
               </p>
 
               <div className="d-flex align-items-center mx-auto rate-btns-container text-decoration-none mb-2">

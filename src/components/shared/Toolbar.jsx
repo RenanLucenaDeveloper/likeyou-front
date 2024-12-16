@@ -35,12 +35,12 @@ const Toolbar = () => {
         </li>
         <li>
           { userInfo ? 
-              <Link to="/change-profile-picture" title='Foto de perfil' className="toolbar-profile-img-container">
+              <Link to="/edit-profile" title='Foto de perfil' className="toolbar-profile-img-container">
                 <img src={userInfo.profileImage ? userInfo.profileImage : accountCircle} alt="Foto de perfil" width="100%" className="d-block"/>
               </Link>
             :
               <Link to="/Welcome" title='Meu Perfil'>
-                <img src={accountCircle} alt="Meu Perfil" width="24px" className="d-block"/>
+                <img src={accountCircle} alt="Meu Perfil" width="20px" className="d-block"/>
               </Link>
           }
         </li>
