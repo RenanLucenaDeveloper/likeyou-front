@@ -152,7 +152,7 @@ const EditProfile = () => {
                         </p>
                     
                         <div className="row">
-                            <div className="fade-in col-12 col-lg-6 pt-3">
+                            <div className="fade-in col-12 pt-3">
                                 <div className='main-card h-100 p-4'>
                                     <Link to={'/change-profile-picture'} className='d-block edit-profile-picture mx-auto'>
                                         <div className="d-block profile-img-container mx-auto mt-2">
