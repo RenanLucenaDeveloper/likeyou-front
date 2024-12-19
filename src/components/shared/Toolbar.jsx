@@ -3,9 +3,18 @@ import home from '@assets/icons/home.svg'
 import addCircle from '@assets/icons/add-circle.svg'
 import search from '@assets/icons/search.svg'
 import accountCircle from '@assets/icons/account-circle.svg'
+import { getLoginInfo } from '../../utils/login-info'
 import { Link } from 'react-router-dom'
 
 const Toolbar = () => {
+  const [userInfo, setUserInfo] = React.useState(null)
+  
+  // Se tiver logado, retorna as infos do user, se não retorna null
+  React.useEffect(() => {
+    const loginInfo = getLoginInfo()
+    setUserInfo(loginInfo)
+  }, [])
+
   return (
     <nav className='toolbar'>
       <ul>
@@ -25,9 +34,15 @@ const Toolbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/Welcome" title='Meu Perfil'>
-            <img src={accountCircle} alt="Meu Perfil" width="24px" className="d-block"/>
-          </Link>
+          { userInfo ? 
+              <Link to="/edit-profile" title='Foto de perfil' className="toolbar-profile-img-container">
+                <img src={userInfo.profileImage ? userInfo.profileImage : accountCircle} alt="Foto de perfil" width="100%" className="d-block"/>
+              </Link>
+            :
+              <Link to="/Welcome" title='Meu Perfil'>
+                <img src={accountCircle} alt="Meu Perfil" width="20px" className="d-block"/>
+              </Link>
+          }
         </li>
       </ul>
     </nav>

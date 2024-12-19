@@ -106,6 +106,7 @@ $dislike-hover: #eb2012;
 $success: #07db9c;
 $warning: #facd03;
 $danger: #fa3d03;
+$danger-hover: #fc5827;
 $info: #0c79b8;
 
 ::placeholder {
@@ -472,6 +473,14 @@ button.loading::before {
     }
 }
 
+.danger-btn {
+    background-color: $dislike;
+
+    &:hover {
+        background-color: $danger-hover;
+    }
+}
+
 .rate-btns-container {
     border: 1px solid #FFFFFF;
     border-radius: .5rem;
@@ -485,7 +494,7 @@ button.loading::before {
     background-color: $dislike;
     color: #FFFFFF;
 
-    padding: .65rem;
+    padding: .5rem .75rem;
     transition: .3s;
 
     font-weight: 500;
@@ -496,6 +505,10 @@ button.loading::before {
     &:hover {
         background-color: $dislike-hover;
     }
+
+    &.active {
+        font-weight: 600;
+    }
 }
 
 .like-btn {
@@ -505,7 +518,7 @@ button.loading::before {
     background-color: $like;
     color: #FFFFFF;
 
-    padding: .65rem;
+    padding: .5rem .75rem;
     transition: .3s;
 
     font-weight: 500;
@@ -516,6 +529,10 @@ button.loading::before {
 
     &:hover {
         background-color: $like-hover;
+    }
+
+    &.active {
+        font-weight: 600;
     }
 }
 
@@ -642,10 +659,21 @@ select {
     }
 }
 
+// CARDS
+
+.main-card {
+    border: 1px dotted $gray-2;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
 // TOOLBAR
 .toolbar {
     width: 100%;
     position: fixed;
+    z-index: 999;
+    background-color: $background-app;
+    
     bottom: 0;
     left: 0;
     border-top: 1px solid $support-lines;
@@ -735,7 +763,41 @@ select {
     width: 210px;
     height: 210px;
     border-radius: 999px;
+    border: 1px solid $gray-2;
     overflow: hidden;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.edit-profile-picture {
+    position: relative;
+    width: 208px;
+    height: 208px;
+
+    button {
+        position: absolute;
+        right: .5rem;
+        bottom: .5rem;
+
+        display: flex;
+        justify-content: center;
+        padding: .55rem;
+        border-radius: 100px;
+        border: 1px solid $input-border;
+    }
+}
+
+.toolbar-profile-img-container {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    overflow: hidden;
+    display: block;
+    padding: 0 !important;
 
     img {
         object-fit: cover;

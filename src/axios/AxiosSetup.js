@@ -1,12 +1,9 @@
 import axios from "axios";
 
-
-const token = "";
-
 const custom_axios = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
     headers: {
-        Authorization: "Bearer " + token,
+        Authorization: "Bearer " + localStorage.getItem("token"),
         Accept: "*/*",
         "Content-Type": "application/json"
     },

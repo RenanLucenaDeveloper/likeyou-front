@@ -4,7 +4,7 @@ import logoWithText from '@assets/logo/logo-with-text.png'
 import showPassword from '@assets/icons/show-password.svg'
 import hidePassword from '@assets/icons/hide-password.svg'
 import { useForm } from 'react-hook-form'
-import Input from '../form/Input'
+import Input from '../Form/Input'
 import InputWithMask from '../Form/InputWithMask'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router"
@@ -19,8 +19,6 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 1200));
-
       // limpa os dados
       data.phone = data.phone.replace(/\D/g, '')
       data.cpf = data.cpf.replace(/\D/g, '')
@@ -28,13 +26,25 @@ const Register = () => {
       const response = await custom_axios.post('/users', data)
       
       toast.success('Conta criada com sucesso!')
-      navigate('/login')
+      login(data.email, data.password)
     }
     catch (error) {
       toast.error(error.response.data.message)
       setError("root", {
         message: error.response.data.message
       })
+    }
+  }
+
+  // Faz o login depois do cadastro
+  const login = async (email, password) => {
+    try {
+      const response = await custom_axios.post('/auth/login', {email, password})
+      localStorage.setItem("token", response.data.access_token)
+      navigate('/finish-register')
+    }
+    catch (error) {
+      toast.error(error.response.data.message)
     }
   }
 
