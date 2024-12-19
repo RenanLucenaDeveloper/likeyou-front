@@ -3,7 +3,7 @@ import logoWithText from '@assets/logo/logo-with-text.png'
 import showPassword from '@assets/icons/show-password.svg'
 import hidePassword from '@assets/icons/hide-password.svg'
 import { useForm } from 'react-hook-form'
-import Input from '../form/Input'
+import Input from '../Form/Input'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router";
 import custom_axios from '@axios/AxiosSetup'
